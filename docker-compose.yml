@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+
+  db57:
+    image: mysql:5.7
+    container_name: sqlbugdemo_mysql_57
+    restart: always
+    environment:
+      MYSQL_DATABASE: "sqlbugdemo"
+      MYSQL_ROOT_PASSWORD: "sqlbugdemo"
+    ports:
+      - "3398:3306"
+    volumes:
+      - sqlbugdemo_mysql_57:/var/lib/mysql
+
+  db80:
+    image: mysql:8.0
+    container_name: sqlbugdemo_mysql_80
+    restart: always
+    environment:
+      MYSQL_DATABASE: "sqlbugdemo"
+      MYSQL_ROOT_PASSWORD: "sqlbugdemo"
+    ports:
+      - "3399:3306"
+    volumes:
+      - sqlbugdemo_mysql_80:/var/lib/mysql
+
+volumes:
+  sqlbugdemo_mysql_57:
+  sqlbugdemo_mysql_80:
